@@ -1,0 +1,24 @@
+Question Link:https://www.interviewbit.com/problems/actors-and-their-movies/
+
+Question:
+
+Write a SQL Query to find the name of those movies where one or more actors acted in two or more movies.
+
+Output Schema:
+
+movie_title
+NOTE:
+
+Output column name has to match the given output schema.
+Any name is the concatenation(without any delimiter) of first and last name if present
+(E.g. if director_first_name is ‘Alfred’ and director_last_name is ‘Hitchcock’ then director_name is ‘AlfredHitchcock’)
+Example Output:
+
+movie_title
+Vertigo
+
+Solution:
+
+select m.movie_title from movies m join movies_cast mc on mc.movie_id=m.movie_id and 
+mc.actor_id in (select mc1.actor_id from movies_cast mc1 where mc1.movie_id!=mc.movie_id)
+
