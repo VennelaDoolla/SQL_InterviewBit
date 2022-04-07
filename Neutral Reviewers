@@ -1,0 +1,23 @@
+Question link : https://www.interviewbit.com/problems/neutral-reviewers/
+
+Question :
+
+Write a SQL Query to find the name of all reviewers who have rated their ratings with a NULL value.
+
+Output Schema:
+
+reviewer_name
+NOTE: Output column name has to match the given output schema.
+
+Example Output:
+
+reviewer_name
+MaxPlank
+NeilsBohr
+Schrodinger
+
+Solution :
+
+select reviewer_name from reviewers inner join ratings 
+on ratings.reviewer_id=reviewers.reviewer_id 
+where number_of_ratings is null;
